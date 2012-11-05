@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nota:</b>
+  <%= @avaliacao.nota %>
+</p>
+
+<p>
+  <b>Justificativa:</b>
+  <%= @avaliacao.justificativa %>
+</p>
+
+
+<%= link_to 'Edit', edit_avaliacao_path(@avaliacao) %> |
+<%= link_to 'Back', avaliacaos_path %>

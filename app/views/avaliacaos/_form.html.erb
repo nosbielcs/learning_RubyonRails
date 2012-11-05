@@ -1,0 +1,30 @@
+<%= form_for(@avaliacao) do |f| %>
+  <% if @avaliacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@avaliacao.errors.count, "error") %> prohibited this avaliacao from being saved:</h2>
+
+      <ul>
+      <% @avaliacao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nota %><br />
+    <%= select("avaliacao","nota", Avaliacao::NOTAS) %>
+  </div>
+  <div class="field">
+    <%= f.label :justificativa %><br />
+    <%= f.text_field :justificativa %>
+  </div>
+  <div>
+  	<%= f.label :comentario_id %><br />
+  	<%= f.collection_select(:comentario_id, Comentario.order("id"), :id, :titulo, {:prompt => true}) %>
+  	<br /><br />
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<h1>Listing comentarios</h1>
+
+<table>
+  <tr>
+  	<th>Autor</th>
+    <th>Titulo</th>
+    <th>Data</th>
+    <th>Texto</th>
+    <th>Tipo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @comentarios.each do |comentario| %>
+  <tr>
+  	<th><%= comentario.usuario.nome %></th>
+    <td><%= comentario.titulo %></td>
+    <td><%= comentario.data %></td>
+    <td><%= comentario.texto %></td>
+    <td><%= comentario.tipo %></td>
+    <td><%= link_to 'Show', comentario %></td>
+    <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>
+    <td><%= link_to 'Destroy', comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show Avaliacoes', Avaliacao.find(comentario.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Comentario', new_comentario_path %>
