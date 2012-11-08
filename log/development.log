@@ -36420,3 +36420,448 @@ Served asset /usuarios.js - 304 Not Modified (25ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-04 09:58:09 -0200
 Served asset /application.js - 304 Not Modified (1ms)
+Connecting to database specified by database.yml
+  [1m[36m (548.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (361.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (1.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsuarios (20121104044451)
+  [1m[35m (141.6ms)[0m  CREATE TABLE `usuarios` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nome` varchar(255), `cpf` int(11), `senha` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (27.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20121104044451')[0m
+Migrating to CreateComentarios (20121104044556)
+  [1m[35m (66.4ms)[0m  CREATE TABLE `comentarios` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `titulo` varchar(255), `data` datetime, `texto` text, `tipo` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (34.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20121104044556')[0m
+Migrating to AddUsuariosIdInComentarios (20121104051838)
+  [1m[35m (267.6ms)[0m  ALTER TABLE `comentarios` ADD `usuario_id` int(11)
+  [1m[36m (178.7ms)[0m  [1mCREATE INDEX `index_comentarios_on_usuario_id` ON `comentarios` (`usuario_id`)[0m
+  [1m[35m (31.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20121104051838')
+Migrating to CreateAvaliacaos (20121104090438)
+  [1m[36m (60.5ms)[0m  [1mCREATE TABLE `avaliacaos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nota` varchar(255), `justificativa` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (37.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20121104090438')
+Migrating to ComentarioIdInAvaliacaos (20121104090645)
+  [1m[36m (202.1ms)[0m  [1mALTER TABLE `avaliacaos` ADD `comentario_id` int(11)[0m
+  [1m[35m (179.7ms)[0m  CREATE INDEX `index_avaliacaos_on_comentario_id` ON `avaliacaos` (`comentario_id`)
+  [1m[36m (27.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20121104090645')[0m
+  [1m[35m (1.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-08 15:37:36 -0200
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (39ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2012-11-08 15:37:48 -0200
+Processing by UsuariosController#index as HTML
+  [1m[36mUsuario Load (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` [0m
+  Rendered usuarios/index.html.erb within layouts/application (56.6ms)
+Compiled avaliacaos.css  (69ms)  (pid 7824)
+Compiled comentarios.css  (4ms)  (pid 7824)
+Compiled scaffolds.css  (53ms)  (pid 7824)
+Compiled usuarios.css  (4ms)  (pid 7824)
+Compiled application.css  (317ms)  (pid 7824)
+Compiled jquery.js  (18ms)  (pid 7824)
+Compiled jquery_ujs.js  (1ms)  (pid 7824)
+Compiled avaliacaos.js  (1011ms)  (pid 7824)
+Compiled comentarios.js  (440ms)  (pid 7824)
+Compiled usuarios.js  (392ms)  (pid 7824)
+Compiled application.js  (3723ms)  (pid 7824)
+Completed 200 OK in 5120ms (Views: 4789.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /application.css - 200 OK (27ms)
+
+
+Started GET "/assets/comentarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /comentarios.css - 200 OK (5ms)
+
+
+Started GET "/assets/avaliacaos.css?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /avaliacaos.css - 200 OK (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /scaffolds.css - 200 OK (34ms)
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /usuarios.css - 200 OK (10ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /jquery.js - 200 OK (14ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /jquery_ujs.js - 200 OK (16ms)
+
+
+Started GET "/assets/avaliacaos.js?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /avaliacaos.js - 200 OK (4ms)
+
+
+Started GET "/assets/comentarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /comentarios.js - 200 OK (5ms)
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /usuarios.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-08 15:37:53 -0200
+Served asset /application.js - 200 OK (96ms)
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` 
+  Rendered usuarios/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 32ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /comentarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /avaliacaos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /usuarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /comentarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /usuarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:42 -0200
+Served asset /avaliacaos.js - 304 Not Modified (0ms)
+
+
+Started GET "/avaliacaos" for 127.0.0.1 at 2012-11-08 15:46:57 -0200
+Processing by AvaliacaosController#index as HTML
+  [1m[36mAvaliacao Load (16.6ms)[0m  [1mSELECT `avaliacaos`.* FROM `avaliacaos` [0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 8 LIMIT 1
+  [1m[36mUsuario Load (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (2.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mUsuario Load (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mComentario Load (2.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 2 LIMIT 1
+  [1m[36mUsuario Load (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  Rendered avaliacaos/index.html.erb within layouts/application (528.3ms)
+Completed 200 OK in 582ms (Views: 525.4ms | ActiveRecord: 43.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /avaliacaos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /comentarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /usuarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /avaliacaos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /comentarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /usuarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-08 15:46:58 -0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/comentarios" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Processing by ComentariosController#index as HTML
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` 
+  [1m[36mUsuario Load (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 1 LIMIT 1
+  [1m[36mUsuario Load (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mAvaliacao Load (2.9ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 3 LIMIT 1
+  [1m[36mUsuario Load (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 7 LIMIT 1
+  [1m[36mCACHE (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mAvaliacao Load (1.0ms)[0m  SELECT `avaliacaos`.* FROM `avaliacaos` WHERE `avaliacaos`.`id` = 10 LIMIT 1
+  Rendered comentarios/index.html.erb within layouts/application (138.7ms)
+Completed 200 OK in 157ms (Views: 137.7ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /avaliacaos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /usuarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /comentarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /avaliacaos.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comentarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /comentarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /usuarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:19 -0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/avaliacaos" for 127.0.0.1 at 2012-11-08 15:47:30 -0200
+Processing by AvaliacaosController#index as HTML
+  [1m[36mAvaliacao Load (0.0ms)[0m  [1mSELECT `avaliacaos`.* FROM `avaliacaos` [0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 8 LIMIT 1
+  [1m[36mUsuario Load (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mUsuario Load (1.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 2 LIMIT 1
+  [1m[36mUsuario Load (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 3 LIMIT 1[0m
+  [1m[35mComentario Load (1.0ms)[0m  SELECT `comentarios`.* FROM `comentarios` WHERE `comentarios`.`id` = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  Rendered avaliacaos/index.html.erb within layouts/application (106.4ms)
+Completed 200 OK in 125ms (Views: 114.3ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /comentarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /avaliacaos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /usuarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /avaliacaos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /comentarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:47:31 -0200
+Served asset /usuarios.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/usuarios" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` 
+  Rendered usuarios/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.css?body=1" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Served asset /avaliacaos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Served asset /comentarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.css?body=1" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Served asset /usuarios.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-08 15:52:26 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/avaliacaos.js?body=1" for 127.0.0.1 at 2012-11-08 15:52:27 -0200
+Served asset /avaliacaos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comentarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:52:27 -0200
+Served asset /comentarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/usuarios.js?body=1" for 127.0.0.1 at 2012-11-08 15:52:27 -0200
+Served asset /usuarios.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-08 15:52:27 -0200
+Served asset /application.js - 304 Not Modified (1ms)

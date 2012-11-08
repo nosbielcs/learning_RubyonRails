@@ -1,5 +1,5 @@
 #DEFINIÇÃO DO BD
-use teste_dev;
+use learning_development;
 
 #SELEÇÃO BÁSICA
 select * from usuarios;
