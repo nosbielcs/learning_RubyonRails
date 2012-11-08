@@ -58,5 +58,9 @@ module Teste
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+	
+	# Add itens for internationalization and utf8
+	config.encoding = "utf-8"
+	
   end
 end

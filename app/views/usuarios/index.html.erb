@@ -9,6 +9,8 @@
     <th></th>
     <th></th>
     <th></th>
+	<th>Contagem</th>
+	<th>Comentarios</th>
   </tr>
 
 <% @usuarios.each do |usuario| %>
@@ -20,6 +22,9 @@
     <td><%= link_to 'Show', usuario %></td>
     <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
     <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td><%= cont = usuario.comentarios.count %></td>
+	<td><%= usuario.comentarios.map(&:titulo) %><% @cont %></td>
+
   </tr>
 <% end %>
 </table>
