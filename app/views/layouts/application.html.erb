@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Teste</title>
+  <title>Learning Ruby on Rails</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<header>
+<%= link_to "Usuarios", usuarios_path %>
+<%= link_to "Comentarios", comentarios_path %>
+<%= link_to "Avaliacoes", avaliacaos_path %>
+</header>
+
+<article>
 <%= yield %>
+</article>
+
+<footer>
+<p>Learning Ruby on Rails</p>
+</footer>
 
 </body>
 </html>
