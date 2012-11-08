@@ -6,10 +6,9 @@
     <th>Cpf</th>
     <th>Senha</th>
     <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-	<th>Contagem</th>
+    <th>Mostrar</th>
+    <th>Editar</th>
+    <th>Apagar</th>
 	<th>Comentarios</th>
   </tr>
 
@@ -22,9 +21,20 @@
     <td><%= link_to 'Show', usuario %></td>
     <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
     <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	<td><%= cont = usuario.comentarios.count %></td>
-	<td><%= usuario.comentarios.map(&:titulo) %><% @cont %></td>
-
+	<% cont = usuario.comentarios.count %>
+		<% if (cont==0) %>
+			<td><%= 'Nenhum comentario' %></td>
+		<% else %>
+			<td>
+			<% i = 0 %>
+				<% while (i < cont) %>
+						<br>
+						<%= link_to usuario.comentarios.map(&:titulo)[i], 'comentarios/' + usuario.comentarios.map(&:usuario_id)[i].to_s + '/edit' %>
+					
+				<% i=i+1 %>
+				<% end %>
+			</td>
+		<% end %>
   </tr>
 <% end %>
 </table>
