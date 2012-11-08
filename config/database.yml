@@ -8,7 +8,7 @@ development:
   encoding: utf8
   username: rails
   password: 
-  database: teste_dev
+  database: learning_dev
   pool: 5
   timeout: 5000
 
@@ -20,7 +20,7 @@ test:
   encoding: utf8
   username: rails
   password: 
-  database: teste_test
+  database: learning_test
   pool: 5
   timeout: 5000
   
@@ -29,6 +29,6 @@ production:
   encoding: utf8
   username: rails
   password: 
-  database: teste_prod
+  database: learning_prod
   pool: 5
   timeout: 5000
