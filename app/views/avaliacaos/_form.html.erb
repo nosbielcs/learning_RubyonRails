@@ -11,10 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nota %><br />
-    <%= select("avaliacao","nota", Avaliacao::NOTAS) %>
-  </div>
+    <div class="field">    
+        <%= f.label :nota %>
+        <table>
+            
+            <tr>
+                <% Notas::NOTAS.each do |i,j| %>
+                    <td>
+                        <%= j.humanize %>
+                    </td>
+                    <% end %>
+            </tr>
+            <tr>
+                <% Notas::NOTAS.each do |i,j| %>
+                <td>        
+                    <%= radio_button "avaliacao", "nota", @i = i %>    
+                </td>
+                <% end %>
+            </tr>
+            
+        </table>
+    </div>
+
   <div class="field">
     <%= f.label :justificativa %><br />
     <%= f.text_field :justificativa %>

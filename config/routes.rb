@@ -5,6 +5,8 @@ Teste::Application.routes.draw do
 
   resources :usuarios
   
+  resource :user_sessions, :only => [:create, :new, :destroy]
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -28,9 +28,8 @@
 			<td>
 			<% i = 0 %>
 				<% while (i < cont) %>
-						<br>
 						<%= link_to usuario.comentarios.map(&:titulo)[i], 'comentarios/' + usuario.comentarios.map(&:usuario_id)[i].to_s + '/edit' %>
-					
+						<br>
 				<% i=i+1 %>
 				<% end %>
 			</td>

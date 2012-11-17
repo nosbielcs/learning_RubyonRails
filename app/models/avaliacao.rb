@@ -1,4 +1,5 @@
 class Avaliacao < ActiveRecord::Base
+	require 'enum.rb'
   attr_accessible :justificativa, :nota, :comentario_id
   
   validates_presence_of :nota, :comentario_id
@@ -6,6 +7,7 @@ class Avaliacao < ActiveRecord::Base
   
   belongs_to :comentario
   validates_associated :comentario
+
   
-  NOTAS = {"pessimo" => "pessimo", "regular" => "regular", "boa" => "boa", "excelente" => "excelente"}
+  
 end
