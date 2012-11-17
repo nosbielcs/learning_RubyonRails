@@ -31,5 +31,7 @@ class UserSession
 	def persisted?
 		false
 	end
+
+
 	
 end

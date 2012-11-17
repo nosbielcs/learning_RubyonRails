@@ -3,5 +3,5 @@ class Tipos
 end
 
 class Notas
-	NOTAS = {"pessimo" => "pessimo", "regular" => "regular", "boa" => "boa", "excelente" => "excelente"}
+	NOTAS = {"pessimo" => "1", "ruim" => "2", "regular" => "3", "bom" => "4", "excelente" => "5"}
 end

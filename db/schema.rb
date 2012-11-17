@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104090645) do
+ActiveRecord::Schema.define(:version => 20121117053517) do
 
   create_table "avaliacaos", :force => true do |t|
-    t.string   "nota"
+    t.integer  "nota"
     t.string   "justificativa"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false

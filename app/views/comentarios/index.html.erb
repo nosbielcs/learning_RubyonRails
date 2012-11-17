@@ -1,3 +1,81 @@
+<script type="text/javascript" charset="utf-8">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container2',
+                type: 'column'
+            },
+            title: {
+                text: 'Avaliação dos Comentários'
+            },
+            subtitle: {
+                text: 'Pontuação média obtida'
+            },
+            xAxis: {
+                categories: [
+                <% @comentarios.each do |comentario| %>
+                  '<%= comentario.id %>',
+                <% end %>
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Pontuação Média'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 100,
+                y: 70,
+                floating: true,
+                shadow: true
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                    'titulo: ' + this.x +' = '+ this.y + 'pontos';
+                }
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+                series: [{
+                name: 'Nota',
+                data: [<% @comentarios.each do |comentario| %>
+                        <% cont = comentario.avaliacaos.count %>
+                        <% if (cont==0) %>
+                          <%= 0 %>
+                        <% else %>
+                          <% i = 0 %>
+                          <% a = 0 %>
+                            <% while (i < cont) %>
+                              <% b = comentario.avaliacaos.map(&:nota)[i] %>
+                              <% a = a + b %>
+                              <% i=i+1 %>
+                            <% end %>
+                            <%= (a.to_f/i.to_f).round(2) %>
+                        <% end %>
+                        ,
+                      <% end %>]
+    
+            }]
+        });
+    });
+    
+});
+</script>
+
+<div id="container2" style="width: 700px; height: 400px; margin: 0 auto"></div>
+
 <h1>Comentários</h1>
 
 <table class="table table-hover">
@@ -8,7 +86,7 @@
     <th>Texto</th>
     <th>Tipo</th>
     <th colspan=3>Ações</th>
-    <th>Avaliacões</th>
+    <th>Avaliacão Média</th>
   </tr>
 
 <% @comentarios.each do |comentario| %>
@@ -28,11 +106,15 @@
     <% else %>
       <td>
       <% i = 0 %>
+      <% a = 0 %>
         <% while (i < cont) %>
-            <%= link_to comentario.avaliacaos.map(&:nota)[i], 'avaliacaos/' + comentario.avaliacaos.map(&:comentario_id)[i].to_s + '/edit' %>
-            <br>
+            <% b = comentario.avaliacaos.map(&:nota)[i] %>
+            <% a = a + b %>
+            
         <% i=i+1 %>
+        
         <% end %>
+        <%= (a.to_f/i.to_f).round(2) %>
       </td>
     <% end %>
 

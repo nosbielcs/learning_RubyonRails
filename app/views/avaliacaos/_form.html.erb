@@ -18,14 +18,14 @@
             <tr>
                 <% Notas::NOTAS.each do |i,j| %>
                     <td>
-                        <%= j.humanize %>
+                        <%= i %>
                     </td>
                     <% end %>
             </tr>
             <tr>
                 <% Notas::NOTAS.each do |i,j| %>
                 <td>        
-                    <%= radio_button "avaliacao", "nota", @i = i %>    
+                    <%= radio_button "avaliacao", "nota", @j = j %>    
                 </td>
                 <% end %>
             </tr>

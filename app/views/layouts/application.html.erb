@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag "bootstrap.min.css" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "bootstrap.min.js" %>
+  <%= javascript_include_tag "jquery-1.8.3.min.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -24,6 +25,9 @@
 
 <article class="container">
 <%= yield %>
+<%= javascript_include_tag "graph/highcharts.js" %>
+<%= javascript_include_tag "graph/highcharts-more.js" %>
+<%= javascript_include_tag "graph/modules/exporting.js" %>
 </article>
 
 <hr></hr>
@@ -39,6 +43,7 @@
       </div>
 	</div>
 </footer>
+
 
 </body>
 </html>
