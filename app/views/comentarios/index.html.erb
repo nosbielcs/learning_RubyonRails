@@ -1,14 +1,14 @@
-<h1>Listing comentarios</h1>
+<h1>Comentários</h1>
 
-<table>
+<table class="table table-hover">
   <tr>
   	<th>Autor</th>
-    <th>Titulo</th>
+    <th>Título</th>
     <th>Data</th>
     <th>Texto</th>
     <th>Tipo</th>
     <th colspan=3>Ações</th>
-    <th>Avaliacoes</th>
+    <th>Avaliacões</th>
   </tr>
 
 <% @comentarios.each do |comentario| %>
@@ -42,4 +42,4 @@
 
 <br />
 
-<%= link_to 'New Comentario', new_comentario_path %>
+<%= link_to 'Novo Comentário', new_comentario_path %>

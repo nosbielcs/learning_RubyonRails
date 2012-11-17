@@ -1,4 +1,7 @@
+#encoding: UTF-8
+
 class ComentariosController < ApplicationController
+
   # GET /comentarios
   # GET /comentarios.json
   def index
